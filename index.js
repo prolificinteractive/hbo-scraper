@@ -53,9 +53,7 @@ const createCardRenderer = pageUrl => card => `
     </div>
 
     <div class="card-description">
-      <p>
-        ${card.details}
-      </p>
+      ${card.details}
     </div>
 
     <div class="card-footer">
