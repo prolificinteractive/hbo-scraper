@@ -44,12 +44,12 @@ const createCardRenderer = pageUrl => card => `
       </a>
       
       <p class="card-title-contextual-label">${card.contextualLabel}</p>
-        <h2 class="card-title">
-          <a class="card-title-link" href="${url.resolve(pageUrl, card.href)}">
-            ${card.title}
-          </a>
-        </h2>
-      </p>
+      
+      <h2 class="card-title">
+        <a class="card-title-link" href="${url.resolve(pageUrl, card.href)}">
+          ${card.title}
+        </a>
+      </h2>
     </div>
 
     <div class="card-description">
