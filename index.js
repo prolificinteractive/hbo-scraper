@@ -16,7 +16,7 @@ module.exports = (context, req, resp) => {
     });
 };
 
-const scrapeContentBlock = async ({ url: pageUrl, sectionTitle }) => {
+const scrapeContentBlock = async ({ url: pageUrl, sectionTitle, limit = Infinity }) => {
   const html = await rp(pageUrl);
   const $ = cheerio.load(html);
   const $sections = $('.bandjson');
@@ -33,7 +33,7 @@ const scrapeContentBlock = async ({ url: pageUrl, sectionTitle }) => {
   const { data } = $(matchedSection).data('band-json');
   const render = createCardRenderer(pageUrl);
 
-  return data.cards.map(render).join('');
+  return data.cards.slice(0, limit).map(render).join('');
 };
 
 const createCardRenderer = pageUrl => card => `
